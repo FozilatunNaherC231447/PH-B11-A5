@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Sora:wght@100..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#f4f7ff] ">
+    <header class="mx-16 py-10">
+        <nav class="bg-white rounded-2xl h-[100px] flex items-center px-10 justify-between shadow-md">
+            <!-- Left section (Logo and Title) -->
+            <div class="flex justify-start space-x-3 items-center">
+                <img class="w-[52px] h-[52px]" src="assets/logo.png">
+                <h1 class="text-4xl font-light font-['Poppins'] tracking-wide">
+                    Dev<span class="font-bold text-[#00303c]">Board</span>
+                </h1>
+            </div>
+    
+            <!-- Right section (Tasks and Theme Button) -->
+            <div class="flex items-center space-x-8 ml-auto">
+                <!-- Task Count -->
+                <div class="flex bg-[#f4f7ff] rounded-[32px] w-[115px] h-14 items-center justify-center space-x-3">
+                    <img class="w-[32px] h-[32px]" src="assets/checkbox.png">
+                    <h1 id="taskCompletedCount" class="text-[#1e1e1e] text-[32px] font-bold font-['Poppins']">23</h1>
+                </div>
+    
+                <!-- Theme Button -->
+                <div class="w-16 h-16 bg-[#f4f7ff] rounded-[32px] flex justify-center ml-auto">
+                    <button id="themeToggle">
+                        <img src="assets/theme-btn.png">
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="mx-16 mb-20">
+        <div class=" grid grid-cols-4 gap-6">
+            <div class="bg-white col-span-3 rounded-2xl p-4 pb-10 shadow-md">
+                <div class="grid grid-cols-4 gap-3 border-dashed border-b-2 pb-6 mb-6">
+                    <div class="col-span-1 bg-[#f4f7ff] rounded-xl flex justify-center items-center  py-5 space-x-2 shadow-md">
+                        <div class="w-16 h-16 bg-white rounded-full flex justify-center items-center ">
+                            <img class="w-[28px] h-[28px] " src="assets/checkbox.png">
+                        </div>
+                        <div>
+                            <h1 class="opacity-80 text-[#00303c] text-base font-medium font-['Poppins'] tracking-wide pt-2">Task Assigned</h1>
+                            <h1 id="taskAssignedCount" class="text-[#00303c] text-[32px] font-bold font-['Poppins'] tracking-wide">6</h1>
+                        </div>
+                    </div>
+
+                    <button  id="discoverButton" class="col-span-2 bg-gradient-to-r from-[#3752fd] via-[#6b7ffa] to-[#9aa7f7] rounded-xl shadow-md">
+                        <div class="flex justify-center items-center py-9  space-x-4">
+                            <div>
+                                <img class="w-[79px] h-[79px]" src="assets/board.png" >
+                            </div>
+                            <div>
+                                <h1 class="text-white text-2xl font-medium font-['Poppins'] tracking-wide ">Discover Something <br>New Today!</h1>
+                            </div>
+                        </div>
+                    </button>
+
+                    <div class="col-span-1 bg-[#f4f7ff] rounded-xl shadow-md">
+                        <div class="flex justify-center items-center pt-10 space-x-2  ">
+                            <div class="w-16 h-16 bg-white rounded-full flex justify-center items-center ">
+                                <img class="w-[28px] h-[28px] " src="assets/calender.png">
+                            </div>
+                            
+                            <div class="text-xl font-bold text-gray-800">
+                                 <span id="liveDate" class="text-[#00303c] text-[19px] font-normal font-['Poppins'] tracking-wide"></span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!--complete task cards-->
+
+                <div class=" grid grid-cols-3 gap-6">
+                    <div class="task-card bg-[#f4f7ff] rounded-2xl p-6 shadow-md">
+                        <div class="h-10 px-4 py-2 bg-white rounded-lg justify-center items-center gap-2.5 inline-flex">
+                            <h1 class="text-[#00303c] text-base font-normal font-['Poppins'] tracking-wide" >ShopEase</h1>
+                        </div>
+                        <div class="py-4">
+                            <h1 class="task-name text-[#00303c] text-xl font-bold font-['Poppins'] tracking-wide">Fix Mobile Button Issue</h1>
+                        </div>
+                        <div class="bg-white rounded-lg border border-[#3752fd]/0 mb-5">
+                            <p class="opacity-50 text-black text-base font-normal font-['Poppins'] tracking-wide p-3">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly and ensure onClick works properly.</p>
+                        </div>
+                        <div class="flex border-dashed border-t-2 pt-4 space-x-4 ">
+                            <div>
+                                <h1 class="opacity-70 text-[#00303c] text-sm font-normal font-['Poppins'] tracking-wide">Deadline</h1>
+                                <h1 class="text-[#00303c] text-base font-medium font-['Poppins'] tracking-wide">21 March 2025</h1>
+                            </div>
+                            
+                            <button class="complete-task px-5  bg-[#3752fd] rounded-lg justify-center items-center  inline-flex">
+                                <span class="text-white text-base font-medium font-['Poppins'] tracking-wide">Completed</span>
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="task-card bg-[#f4f7ff] rounded-2xl p-6 shadow-md">
+                        <div class="h-10 px-4 py-2 bg-white rounded-lg justify-center items-center gap-2.5 inline-flex">
+                            <h1 class="text-[#00303c] text-base font-normal font-['Poppins'] tracking-wide" >CloudSync</h1>
+                        </div>
+                        <div class="py-4">
+                            <h1 class="task-name text-[#00303c] text-xl font-bold font-['Poppins'] tracking-wide">Add Dark Mode</h1>
+                        </div>
+                        <div class="bg-white rounded-lg border border-[#3752fd]/0 mb-5">
+                            <p class="opacity-50 text-black text-base font-normal font-['Poppins'] tracking-wide p-3">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly and ensure onClick works properly.</p>
+                        </div>
+                        <div class="flex border-dashed border-t-2 pt-4 space-x-4 ">
+                            <div>
+                                <h1 class="opacity-70 text-[#00303c] text-sm font-normal font-['Poppins'] tracking-wide">Deadline</h1>
+                                <h1 class="text-[#00303c] text-base font-medium font-['Poppins'] tracking-wide">21 March 2025</h1>
+                            </div>
+                            
+                            <button class="complete-task px-5  bg-[#3752fd] rounded-lg justify-center items-center  inline-flex">
+                                <span class="text-white text-base font-medium font-['Poppins'] tracking-wide">Completed</span>
+                            </button>
+
+                        </div>
+                    </div>
+                    <div class="task-card bg-[#f4f7ff] rounded-2xl p-6 shadow-md">
+                        <div class="h-10 px-4 py-2 bg-white rounded-lg justify-center items-center gap-2.5 inline-flex">
+                            <h1 class="text-[#00303c] text-base font-normal font-['Poppins'] tracking-wide" >SwiftPay</h1>
+                        </div>
+                        <div class=" py-4">
+                            <h1 class="task-name text-[#00303c] text-xl font-bold font-['Poppins'] tracking-wide">Optimize  Home page</h1>
+                        </div>
+                        <div class="bg-white rounded-lg border border-[#3752fd]/0 mb-5">
+                            <p class="opacity-50 text-black text-base font-normal font-['Poppins'] tracking-wide p-3">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly and ensure onClick works properly.</p>
+                        </div>
+                        <div class="flex border-dashed border-t-2 pt-4 space-x-4 ">
+                            <div>
+                                <h1 class="opacity-70 text-[#00303c] text-sm font-normal font-['Poppins'] tracking-wide">Deadline</h1>
+                                <h1 class="text-[#00303c] text-base font-medium font-['Poppins'] tracking-wide">21 March 2025</h1>
+                            </div>
+                            
+                            <button class="complete-task px-5  bg-[#3752fd] rounded-lg justify-center items-center  inline-flex">
+                                <span class=" text-white text-base font-medium font-['Poppins'] tracking-wide">Completed</span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" grid grid-cols-3 gap-6 mt-7">
+                    <div class="task-card bg-[#f4f7ff] rounded-2xl p-6 shadow-md">
+                        <div class="h-10 px-4 py-2 bg-white rounded-lg justify-center items-center gap-2.5 inline-flex">
+                            <h1 class="text-[#00303c] text-base font-normal font-['Poppins'] tracking-wide" >Meta</h1>
+                        </div>
+                        <div class=" py-4">
+                            <h1 class="task-name text-[#00303c] text-xl font-bold font-['Poppins'] tracking-wide">Add new emoji 🤲</h1>
+                        </div>
+                        <div class="bg-white rounded-lg border border-[#3752fd]/0 mb-5">
+                            <p class="opacity-50 text-black text-base font-normal font-['Poppins'] tracking-wide p-3">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly and ensure onClick works properly.</p>
+                        </div>
+                        <div class="flex border-dashed border-t-2 pt-4 space-x-4 ">
+                            <div>
+                                <h1 class="opacity-70 text-[#00303c] text-sm font-normal font-['Poppins'] tracking-wide">Deadline</h1>
+                                <h1 class="text-[#00303c] text-base font-medium font-['Poppins'] tracking-wide">21 March 2025</h1>
+                            </div>
+                            
+                            <button class="complete-task px-5  bg-[#3752fd] rounded-lg justify-center items-center  inline-flex">
+                                <span class="text-white text-base font-medium font-['Poppins'] tracking-wide">Completed</span>
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="task-card bg-[#f4f7ff] rounded-2xl p-6 shadow-md">
+                        <div class="h-10 px-4 py-2 bg-white rounded-lg justify-center items-center gap-2.5 inline-flex">
+                            <h1 class="text-[#00303c] text-base font-normal font-['Poppins'] tracking-wide" >Google LLC</h1>
+                        </div>
+                        <div class=" py-4">
+                            <h1 class="task-name text-[#00303c] text-xl font-bold font-['Poppins'] tracking-wide">Integrate OpenAI API </h1>
+                        </div>
+                        <div class="bg-white rounded-lg border border-[#3752fd]/0 mb-5">
+                            <p class="opacity-50 text-black text-base font-normal font-['Poppins'] tracking-wide p-3">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly and ensure onClick works properly.</p>
+                        </div>
+                        <div class="flex border-dashed border-t-2 pt-4 space-x-4 ">
+                            <div>
+                                <h1 class="opacity-70 text-[#00303c] text-sm font-normal font-['Poppins'] tracking-wide">Deadline</h1>
+                                <h1 class="text-[#00303c] text-base font-medium font-['Poppins'] tracking-wide">21 March 2025</h1>
+                            </div>
+                            
+                            <button class="complete-task px-5  bg-[#3752fd] rounded-lg justify-center items-center  inline-flex">
+                                <span class="text-white text-base font-medium font-['Poppins'] tracking-wide">Completed</span>
+                            </button>
+
+                        </div>
+                    </div>
+                    <div class="task-card bg-[#f4f7ff] rounded-2xl p-6 shadow-md">
+                        <div class="h-10 px-4 py-2 bg-white rounded-lg justify-center items-center gap-2.5 inline-flex">
+                            <h1 class="text-[#00303c] text-base font-normal font-['Poppins'] tracking-wide" >Glassdoar</h1>
+                        </div>
+                        <div class=" py-4">
+                            <h1 class="task-name text-[#00303c] text-xl font-bold font-['Poppins'] tracking-wide">Improve Job searching </h1>
+                        </div>
+                        <div class="bg-white rounded-lg border border-[#3752fd]/0 mb-5">
+                            <p class="opacity-50 text-black text-base font-normal font-['Poppins'] tracking-wide p-3">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly and ensure onClick works properly.</p>
+                        </div>
+                        <div class="flex border-dashed border-t-2 pt-4 space-x-4 ">
+                            <div>
+                                <h1 class="opacity-70 text-[#00303c] text-sm font-normal font-['Poppins'] tracking-wide">Deadline</h1>
+                                <h1 class="text-[#00303c] text-base font-medium font-['Poppins'] tracking-wide">21 March 2025</h1>
+                            </div>
+                            
+                            <button class="complete-task px-5  bg-[#3752fd] rounded-lg justify-center items-center  inline-flex">
+                                <span class="text-white text-base font-medium font-['Poppins'] tracking-wide">Completed</span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--Activity log-->
+
+            <div class="bg-white col-span-1 rounded-2xl shadow-md p-5">
+                <div class="border-dashed border-b-2 pb-6">
+                    <div class="flex justify-center pb-5 space-x-3">
+                        <img src="assets/activity.png">
+                        <h1 class="text-[#00303c] text-xl font-medium font-['Poppins'] tracking-wide">Activity Log</h1>
+                    </div>
+                    <div class=" flex justify-center">
+                        <button id="clearHistoryButton" class="p-3  bg-[#3752fd] rounded-lg justify-center items-center  inline-flex">
+                            <span class="text-white text-base font-medium font-['Poppins'] tracking-wide">Clear History</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="activityLogMessages" class="mt-4 space-y-4 ">
+
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <script src="script/first.js"></script>
+    <script src="script/third.js"></script>
+</body>
+</html>
